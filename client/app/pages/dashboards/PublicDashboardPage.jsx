@@ -26,12 +26,6 @@ function PublicDashboard({ dashboard }) {
 
   return (
     <div className="container p-t-10 p-b-20">
-      <PageHeader title={dashboard.name} />
-      {!isEmpty(globalParameters) && (
-        <div className="m-b-10 p-15 bg-white tiled">
-          <Parameters parameters={globalParameters} onValuesChange={refreshDashboard} />
-        </div>
-      )}
       {!isEmpty(filters) && (
         <div className="m-b-10 p-15 bg-white tiled">
           <Filters filters={filters} onChange={setFilters} />
@@ -88,14 +82,6 @@ class PublicDashboardPage extends React.Component {
         ) : (
           <PublicDashboard dashboard={dashboard} />
         )}
-        <div id="footer">
-          <div className="text-center">
-            <Link href="https://redash.io">
-              <img alt="Redash Logo" src={logoUrl} width="38" />
-            </Link>
-          </div>
-          Powered by <Link href="https://redash.io/?ref=public-dashboard">Redash</Link>
-        </div>
       </div>
     );
   }

@@ -17,6 +17,7 @@ function getHoverInfoPattern(options: any) {
 }
 
 function prepareBarSeries(series: any, options: any, additionalOptions: any) {
+  series.hoverinfo = "skip";
   series.type = "bar";
   series.offsetgroup = toString(additionalOptions.index);
   if (options.showDataLabels) {
@@ -125,6 +126,7 @@ function prepareSeries(series: any, options: any, additionalOptions: any) {
     marker: { color: seriesColor },
     insidetextfont: {
       color: chooseTextColorForBackground(seriesColor),
+      size: 16,
     },
     yaxis: seriesYAxis,
     sourceData,
