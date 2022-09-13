@@ -6,12 +6,12 @@ import { ColorPaletteArray } from "@/visualizations/ColorPalette";
 import { cleanNumber, normalizeValue } from "./utils";
 
 export function getPieDimensions(series: any) {
-  const rows = series.length > 2 ? 2 : 1;
+  const rows = screen.width < 960 ? series.length : series.length > 2 ? 2 : 1;
   const cellsInRow = Math.ceil(series.length / rows);
   const cellWidth = 1 / cellsInRow;
   const cellHeight = 1 / rows;
   const xPadding = 0.02;
-  const yPadding = 0.1;
+  const yPadding = 0.15;
 
   return { rows, cellsInRow, cellWidth, cellHeight, xPadding, yPadding };
 }
@@ -83,6 +83,7 @@ function prepareSeries(series: any, options: any, additionalOptions: any) {
     textposition: "inside",
     textfont: {
       color: textColors,
+      size: 16,
     },
     name: seriesOptions.name || series.name,
     direction: options.direction.type,

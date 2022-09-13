@@ -57,6 +57,7 @@ export default function initChart(container: any, options: any, data: any, addit
     displaylogo: false,
   };
 
+  additionalOptions.hidePlotlyModeBar = true;
   if (additionalOptions.hidePlotlyModeBar) {
     // @ts-expect-error ts-migrate(2339) FIXME: Property 'displayModeBar' does not exist on type '... Remove this comment to see the full error message
     plotlyOptions.displayModeBar = false;
