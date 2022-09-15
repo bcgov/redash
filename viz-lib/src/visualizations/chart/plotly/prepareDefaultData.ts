@@ -21,7 +21,7 @@ function prepareBarSeries(series: any, options: any, additionalOptions: any) {
   series.type = "bar";
   series.offsetgroup = toString(additionalOptions.index);
   if (options.showDataLabels) {
-    series.textposition = "outside";
+    series.textposition = options.showLabelInOut;
   }
   return series;
 }

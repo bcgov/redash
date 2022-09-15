@@ -113,6 +113,30 @@ export default function DataLabelsSettings({ options, onOptionsChange }: any) {
           onChange={(e: any) => debouncedOnOptionsChange({ textFormat: e.target.value })}
         />
       </Section>
+
+      {/* @ts-expect-error ts-migrate(2745) FIXME: This JSX tag's 'children' prop expects type 'never... Remove this comment to see the full error message */}
+      <Section>
+        <Input
+          label={
+            <React.Fragment>
+              Label Position
+              {/* @ts-expect-error ts-migrate(2746) FIXME: This JSX tag's 'children' prop expects a single ch... Remove this comment to see the full error message */}
+              <ContextHelp placement="topRight" arrowPointAtCenter>
+                <div style={{ paddingBottom: 5 }}>Use values to place the label inside or outside the chart:</div>
+                <div>
+                  <code>{"inside"}</code> Position the label inside the chart;
+                </div>
+                <div>
+                  <code>{"outside"}</code> Position the label outside the chart;
+                </div>
+              </ContextHelp>
+            </React.Fragment>
+          }
+          defaultValue={options.showLabelInOut}
+          onChange={(e: any) => debouncedOnOptionsChange({ showLabelInOut: e.target.value })}
+        />
+      </Section>
+      
     </React.Fragment>
   );
 }
