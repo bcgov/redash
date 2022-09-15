@@ -78,8 +78,9 @@ function prepareSeries(series: any, options: any, additionalOptions: any) {
       colors: markerColors,
     },
     hoverinfo: hoverInfoPattern,
+    hoverlabel: {font: {color: textColors}},
     text: [],
-    textinfo: options.showDataLabels ? "percent" : "none",
+    textinfo: options.showDataLabels ? "text" : "none",
     textposition: "inside",
     textfont: {
       color: textColors,

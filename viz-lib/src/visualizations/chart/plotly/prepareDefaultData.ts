@@ -21,7 +21,7 @@ function prepareBarSeries(series: any, options: any, additionalOptions: any) {
   series.type = "bar";
   series.offsetgroup = toString(additionalOptions.index);
   if (options.showDataLabels) {
-    series.textposition = "inside";
+    series.textposition = "outside";
   }
   return series;
 }
@@ -126,6 +126,9 @@ function prepareSeries(series: any, options: any, additionalOptions: any) {
     marker: { color: seriesColor },
     insidetextfont: {
       color: chooseTextColorForBackground(seriesColor),
+      size: 16,
+    },
+    outsidetextfont: {
       size: 16,
     },
     yaxis: seriesYAxis,
