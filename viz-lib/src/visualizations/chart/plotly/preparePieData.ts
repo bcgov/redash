@@ -66,7 +66,13 @@ function prepareSeries(series: any, options: any, additionalOptions: any) {
   });
 
   const markerColors = map(series.data, row => getValueColor(row.x));
-  const textColors = map(markerColors, c => chooseTextColorForBackground(c));
+  let textColors = map(markerColors, c => chooseTextColorForBackground(c));
+
+  if (options.showLabelInOut === 'inside') {
+    textColors;
+  } else {
+    textColors = ['#000000'];
+  };
 
   return {
     visible: true,
@@ -78,9 +84,10 @@ function prepareSeries(series: any, options: any, additionalOptions: any) {
       colors: markerColors,
     },
     hoverinfo: hoverInfoPattern,
+    hoverlabel: {font: {color: textColors}},
     text: [],
-    textinfo: options.showDataLabels ? "percent" : "none",
-    textposition: "inside",
+    textinfo: options.showDataLabels ? "text" : "none",
+    textposition: options.showLabelInOut,
     textfont: {
       color: textColors,
       size: 16,
