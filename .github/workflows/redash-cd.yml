@@ -21,6 +21,7 @@ defaults:
 
 env:
   APP_NAME: "met-analytics"
+  DEPLOYMENT_NAME: "met-analytics-server"
   TAG_NAME: "dev"
 
 jobs:
@@ -59,4 +60,4 @@ jobs:
       - name: Rollout
         shell: bash
         run: |
-          oc rollout status dc/${{ env.APP_NAME }} -n ${{ secrets.OPENSHIFT_REPOSITORY }}-${{ env.TAG_NAME }} -w
+          oc rollout status deployment/${{ env.DEPLOYMENT_NAME }} -n ${{ secrets.OPENSHIFT_REPOSITORY }}-${{ env.TAG_NAME }} -w
