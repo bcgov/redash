@@ -22,5 +22,5 @@ class TestBuildSchema(TestCase):
 
         self.assertIn("main.users", schema.keys())
         self.assertListEqual(schema["main.users"]["columns"], ["id", "name"])
-        self.assertIn('public."main.users"', schema.keys())
-        self.assertListEqual(schema['public."main.users"']["columns"], ["id"])
+        self.assertIn('"main.users"', schema.keys())
+        self.assertListEqual(schema['"main.users"']["columns"], ["id"])
